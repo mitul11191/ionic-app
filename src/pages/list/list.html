@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Applications </ion-title>
+    <ion-buttons end>
+      <button ion-button menuToggle end>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of lists" (click)="itemTapped($event, item.id)">
+    <ion-row>
+      <ion-col>
+        <h3>{{item.name}} </h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> {{item.loanAmount}} </ion-col>
+      <ion-col text-right>{{item.tenure}}</ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

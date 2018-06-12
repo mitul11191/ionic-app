@@ -1,0 +1,75 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <ion-title> Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="logo">
+    <img src="" />
+  </div>
+
+  <form #signUp="ngForm" (ngSubmit)="saveUser()">
+    <ion-list>
+
+      <ion-item no-padding>
+        <ion-label stacked>NAME</ion-label>
+        <ion-input type="text" [(ngModel)]="user.name" name="name" #name="ngModel" required></ion-input>
+      </ion-item>
+      <div class="error-msg" *ngIf="name.errors && (name.dirty || name.touched)">
+        <p *ngIf="name.errors.required">Name is required</p>
+      </div>
+
+      <ion-item no-padding>
+        <ion-label stacked>EMAIL</ion-label>
+        <ion-input type="text" [(ngModel)]="user.email" name="email" #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          required></ion-input>
+      </ion-item>
+      <div class="error-msg" *ngIf="email.errors && (email.dirty || email.touched)">
+        <p *ngIf="email.errors.required">Email is required</p>
+        <p *ngIf="email.errors.pattern && !email.errors.required">Invalid email </p>
+      </div>
+
+      <ion-item no-padding>
+        <ion-label stacked>MOBILE</ion-label>
+        <ion-input type="text" [(ngModel)]="user.mobile" #mobile="ngModel" name="mobile" minlength="10" required></ion-input>
+      </ion-item>
+      <div class="error-msg" *ngIf="mobile.errors && (mobile.dirty || mobile.touched)">
+        <p *ngIf="mobile.errors.required">Mobile is required</p>
+        <p *ngIf="mobile.errors.minlength && !mobile.errors.required">Mobile number at least 10 characters long. </p>
+      </div>
+
+      <ion-item no-padding>
+        <ion-label stacked>PASSWORD</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password" #password="ngModel" name="password" minlength="4" required></ion-input>
+      </ion-item>
+      <div class="error-msg" *ngIf="password.errors && (password.dirty || password.touched)">
+        <p *ngIf="password.errors.required">Password is required</p>
+        <p *ngIf="password.errors.minlength && !password.errors.required">Password must be at least 4 characters long. </p>
+      </div>
+
+      <ion-item no-padding>
+        <ion-label stacked>CONFIRM PASSWORD</ion-label>
+        <ion-input type="password" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" name="confirmPassword" required></ion-input>
+      </ion-item>
+      <p class="error-msg" *ngIf="user.confirmPassword !== user.password && (confirmPassword.dirty || confirmPassword.touched)"> Password not match </p>
+      <div class="error-msg" *ngIf="confirmPassword.errors && (confirmPassword.dirty || confirmPassword.touched)">
+        <p *ngIf="confirmPassword.errors.required">Password is required</p>
+        <p *ngIf="confirmPassword.errors.minlength && !confirmPassword.errors.required">Confirm assword must be at least 4 characters long. </p>
+      </div>
+
+    </ion-list>
+    <div padding-top>
+      <button type="submit" ion-button full [disabled]="signUp.invalid">Submit</button>
+    </div>
+  </form>
+</ion-content>

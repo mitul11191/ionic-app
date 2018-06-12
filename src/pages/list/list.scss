@@ -1,0 +1,15 @@
+page-list {
+    .card-md {
+        padding: 5px 10px;
+    }
+    .card-md .row:first-child {
+        border-bottom: 1px solid #e8e5e5;
+    }
+    .card-md .row .col {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .content-md {
+        background-color: #eae8e8;
+    }
+}

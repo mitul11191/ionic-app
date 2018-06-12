@@ -1,0 +1,14 @@
+page-login {
+    h6 {
+        font-size:14px;
+        margin-top: 10px;
+    }
+
+    .text-input-md {
+        margin-left: 0;
+    }
+    a{
+        color: map-get($colors, dark);
+        text-decoration: none;
+    }
+}
